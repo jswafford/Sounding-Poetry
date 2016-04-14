@@ -17,7 +17,7 @@ tier = data.tier('word')
 result = []
 
 for i, label in enumerate(tier):
-    #to make excerpts split by word
+    # to make excerpts split by word
     filename = '{}/excerpts/excerpt{}.wav'.format(args.outdir, i)
     trimcommand = shlex.split('sox {} {} trim {} ={}'.format(args.wav, filename, label.t1, label.t2))
     ampcommand = shlex.split('sox {} -n stat'.format(filename))
@@ -25,7 +25,6 @@ for i, label in enumerate(tier):
     trim.wait()
     amplitude = sp.Popen(ampcommand, stderr=sp.PIPE)
     lines = amplitude.stderr.read().splitlines()
-    
 
     result.append(dict(
         start = label.t1,
