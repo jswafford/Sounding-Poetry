@@ -57,7 +57,8 @@ def main():
     for i, label in enumerate(tier):
         # to make excerpts split by word
         filename = '{}/excerpts/excerpt{}.wav'.format(args.outdir, i)
-        trimcommand = shlex.split('sox {} {} trim {} ={}'.format(args.wav, filename, label.t1, label.t2))
+        trimcommand = shlex.split('sox {} {} trim {} ={}'.format(
+                        args.wav, filename, label.t1, label.t2))
         ampcommand = shlex.split('sox {} -n stat'.format(filename))
         trim = sp.Popen(trimcommand, stderr=sp.PIPE)
         trim.wait()
