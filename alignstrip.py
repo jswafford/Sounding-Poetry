@@ -3,12 +3,20 @@ import json
 import shlex
 import subprocess as sp
 
+# audiolabel - not installable via pip?
+
 import audiolabel
+
+# TODO: document arg parsing here.
+
+# adds arguments for parsing
 
 parser = argparse.ArgumentParser()
 parser.add_argument('textgrid')
 parser.add_argument('wav')
 parser.add_argument('outdir')
+
+# parses arguments
 
 args = parser.parse_args()
 
