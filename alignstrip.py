@@ -18,7 +18,7 @@ OUTDIR = "NEED_DEFAULT_VALUE_HERE"
 
 
 def parse_args(argv=None):
-    """Parses the command line.
+    """Parses the command line input.
     If no arguments are given, it will default to a given set of commands."""
 
     argv = sys.argv[1:] if argv is None else argv
