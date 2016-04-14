@@ -34,7 +34,6 @@ def parse_args(argv=None):
                         help='Describes what the argument does. Default = {}')
     return parser.parse_args(argv)
 
-
 def main():
     """The main function that is run when not imported in another module."""
 
@@ -48,6 +47,7 @@ def main():
     parser.add_argument('wav')
     parser.add_argument('outdir')
     args = parser.parse_args()
+
     # args = parse_args()
 
     data = audiolabel.LabelManager(from_file=args.textgrid, from_type="praat")
@@ -74,3 +74,6 @@ def main():
         ))
     raw_text = json.dumps(result, indent=2)
     open('{}/data.json'.format(args.outdir), 'w').write(raw_text)
+
+if __name__ == '__main__':
+    main()
