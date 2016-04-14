@@ -2,6 +2,7 @@ import argparse
 import json
 import shlex
 import subprocess as sp
+import sys
 
 # audiolabel - not installable via pip?
 
@@ -20,6 +21,7 @@ def parse_args(argv=None):
     """Parses the command line.
     If no arguments are given, it will default to a given set of commands."""
 
+    argv = sys.argv[1:] if argv is None else argv
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('-t', '--textgrid', dest='textgrid', action='store',
                         default=TEXTGRID,
@@ -33,6 +35,7 @@ def parse_args(argv=None):
                         action='store', default=OUTDIR,
                         help='Describes what the argument does. Default = {}')
     return parser.parse_args(argv)
+
 
 def main():
     """The main function that is run when not imported in another module."""
