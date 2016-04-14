@@ -23,13 +23,15 @@ def parse_args(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('-t', '--textgrid', dest='textgrid', action='store',
                         default=TEXTGRID,
-                        help='Describes what the argument does. Default = {}.'.format(TEXTGRID))
+                        help='Describes what the argument does.'
+                        ' Default = {}.'.format(TEXTGRID))
     parser.add_argument('-w', '--wav', dest='wav',
                         default=WAV,
-                        help='Describes what the argument does = {}'.format(WAV))
+                        help='Describes what the argument does.'
+                        ' Default = {}'.format(WAV))
     parser.add_argument('-o', '--outdir', dest='outdir',
                         action='store', default=OUTDIR,
-                        help='Describes what the argument does')
+                        help='Describes what the argument does. Default = {}')
     return parser.parse_args(argv)
 
 
