@@ -42,16 +42,15 @@ def main():
 
     # parses arguments
 
-    # when the thing runs using our functions,
-    # delete following lines and uncomment
-    # the last line to use our own parsing function.
-    parser = argparse.ArgumentParser()
-    parser.add_argument('textgrid')
-    parser.add_argument('wav')
-    parser.add_argument('outdir')
-    args = parser.parse_args()
+    # old way of parsing
+    # parser = argparse.ArgumentParser()
+    # parser.add_argument('textgrid')
+    # parser.add_argument('wav')
+    # parser.add_argument('outdir')
+    # args = parser.parse_args()
 
-    # args = parse_args()
+    # new way
+    args = parse_args()
 
     data = audiolabel.LabelManager(from_file=args.textgrid, from_type="praat")
     tier = data.tier('word')
