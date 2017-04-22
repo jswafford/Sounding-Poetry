@@ -1,4 +1,4 @@
-data = [
+var data = [
   {
     "duration": 0.4689342403632, 
     "text": "sp", 
@@ -560,20 +560,25 @@ data = [
     "start": 28.3281179138
   }
 ];
-// Filter out the spaces
+// Filter out the spaces ("sp"=spaces)
 data = _.filter(data, function(x){return x.text != "sp";});
 window.onload = function() {
-  words = d3.selectAll("span.word");
-  window.words = words;
+  // associates each span with data for that word
+  var words = d3.selectAll("span.word");
   words.data(data);
+  // applies one of the 3 visualization modes (area, width, or scale)
   function apply(mode) {
+    // remove all mode classes
     d3.select("div.text-wrapper").classed({
       "mode-area": false,
       "mode-width": false,
       "mode-scale": false,
+      // adds back selected mode class
     }).classed("mode-"+mode, true);
+    // return to default width and font-size
     words.style("width", null);
     words.style("font-size", null);
+    // applies visualization mode
     if(mode === "area") {
       // Area mode - each word fits in a box whose area is proportional to the word's duration.
       // Pros: shortish words with long durations look larger than long words with similar duration.
